@@ -1,0 +1,21 @@
+        <%=link_to(image_tag("/images/logo.png",:size => "504x50", :alt=> "home"),
+          {:controller=>"static_pages", :action=>"index"}, :title=>"Home", :class=>"logo") %>
+          <br>
+        
+         <%=link_to(image_tag("/images/fix.png",:size => "104x25", :alt=> "fixtures"),
+          {:controller=>"fixtures", :action=>"index"}, :title=>"Fixtures", :class=>"logo") %>
+        
+         <%=link_to(image_tag("/images/predict.png",:size => "140x25", :alt=> "predictions"),
+            {:controller=>"predicts", :action=>"index"}, :title=>"Predictions", :class=>"logo") %>
+                     
+          
+    <% if signed_in? %>        
+      <b><a href='/signout' rel="nofollow" data-method="delete" data-confirm="Are you sure?">Sign Out</a></b>	
+      <% else %>
+         <b><a href="/signin">Sign In</a></b>
+    <% end %>
+   
+   	<% if signed_in? && current_user.admin? %>
+          <li class="active"><a href="/games">Games</a></li>    
+          	    <li class="active"><a href="/users">Users</a></li> 
+          	<% end %>

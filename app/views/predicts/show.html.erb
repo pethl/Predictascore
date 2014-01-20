@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @predict.user_id %>
+</p>
+
+<p>
+  <b>Fixture:</b>
+  <%= @predict.fixture_id %>
+</p>
+
+<p>
+  <b>Game:</b>
+  <%= @predict.game_id %>
+</p>
+
+<p>
+  <b>Awayscore:</b>
+  <%= @predict.awayscore %>
+</p>
+
+<p>
+  <b>Homescore:</b>
+  <%= @predict.homescore %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @predict.points %>
+</p>
+
+<p>
+  <b>Correct result:</b>
+  <%= @predict.correct_result %>
+</p>
+
+<p>
+  <b>Right result:</b>
+  <%= @predict.right_result %>
+</p>
+
+<p>
+  <b>Val right result:</b>
+  <%= @predict.val_right_result %>
+</p>
+
+<p>
+  <b>Closest to home:</b>
+  <%= @predict.closest_to_home %>
+</p>
+
+<p>
+  <b>Closest to away:</b>
+  <%= @predict.closest_to_away %>
+</p>
+
+<p>
+  <b>Exact home score:</b>
+  <%= @predict.exact_home_score %>
+</p>
+
+<p>
+  <b>Exact away score:</b>
+  <%= @predict.exact_away_score %>
+</p>
+
+<p>
+  <b>Exact result:</b>
+  <%= @predict.exact_result %>
+</p>
+
+<p>
+  <b>Val exact result:</b>
+  <%= @predict.val_exact_result %>
+</p>
+
+<p>
+  <b>Val closest to home:</b>
+  <%= @predict.val_closest_to_home %>
+</p>
+
+<p>
+  <b>Val closest to away:</b>
+  <%= @predict.val_closest_to_away %>
+</p>
+
+
+<%= link_to 'Edit', edit_predict_path(@predict) %> |
+<%= link_to 'Back', predicts_path %>

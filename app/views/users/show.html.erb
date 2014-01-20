@@ -1,0 +1,22 @@
+<% provide(:title, 'User profile') %>
+
+<h2>Hi <%= h @user.name %></h2>
+
+<% if @predicts.count > 0  %>
+
+  	<div class="row-fluid">
+      <div class="span5offset1">
+          <%= render 'predicts/userpredict' %>
+      </div>
+      
+      <div class="span3">
+        <%= render 'fixtures/lastyearfix' %>
+        </div>
+        <div class="span3">
+        <%= render 'predicts/userlastyearpredict' %>
+        </div>
+    </div>
+  	
+  <% else %>
+  	<%= render 'users/predictform' %>
+  <% end %>

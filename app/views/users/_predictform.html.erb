@@ -1,0 +1,16 @@
+
+  <h3>Welcome to the <%= @current_game[0].name %> predictascore competition.</h3>
+ 
+ Please change your password now<br>
+
+    <%= render 'users/form2' %>
+
+   <br> 
+ Next, click here to enter your predictions <br><br>
+ 
+      <%= form_for(:user, url: get_records_users_path) do |f| %>
+        	<%= hidden_field_tag "game_id", @current_game[0].id %>
+          <%= hidden_field_tag "user_id", @user.id %>
+
+    <%= f.submit 'Predictions', :class => 'mybutton' %>
+     <% end %>

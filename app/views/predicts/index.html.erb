@@ -1,0 +1,66 @@
+<h2>Load Past Predictions</h2>
+
+
+<button class="btn">	<%= form_tag import_predicts_path, multipart: true do %>
+                     <%= collection_select(:game, :game_id, Game.all, :id, :name ) %>
+
+                      <%= file_field_tag :file %>
+                      <%= submit_tag "Import" %>
+                       <% end %>
+ </button>
+
+<h1>Listing predicts</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Fixture</th>
+    <th>Game</th>
+    <th>Awayscore</th>
+    <th>Homescore</th>
+    <th>Points</th>
+    <th>Correct result</th>
+    <th>Right result</th>
+    <th>Val right result</th>
+    <th>Closest to home</th>
+    <th>Closest to away</th>
+    <th>Exact home score</th>
+    <th>Exact away score</th>
+    <th>Exact result</th>
+    <th>Val exact result</th>
+    <th>Val closest to home</th>
+    <th>Val closest to away</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @predicts.each do |predict| %>
+  <tr>
+    <td><%= predict.user_id %></td>
+    <td><%= predict.fixture_id %></td>
+    <td><%= predict.game_id %></td>
+    <td><%= predict.awayscore %></td>
+    <td><%= predict.homescore %></td>
+    <td><%= predict.points %></td>
+    <td><%= predict.correct_result %></td>
+    <td><%= predict.right_result %></td>
+    <td><%= predict.val_right_result %></td>
+    <td><%= predict.closest_to_home %></td>
+    <td><%= predict.closest_to_away %></td>
+    <td><%= predict.exact_home_score %></td>
+    <td><%= predict.exact_away_score %></td>
+    <td><%= predict.exact_result %></td>
+    <td><%= predict.val_exact_result %></td>
+    <td><%= predict.val_closest_to_home %></td>
+    <td><%= predict.val_closest_to_away %></td>
+    <td><%= link_to 'Show', predict %></td>
+    <td><%= link_to 'Edit', edit_predict_path(predict) %></td>
+    <td><%= link_to 'Destroy', predict, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Predict', new_predict_path %>

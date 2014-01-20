@@ -1,0 +1,54 @@
+<h2>Competitions</h2>
+<br>
+
+<table  class="table">
+  <tr>
+	  <th>Name</th>
+    <th>Start</th>
+    <th>End</th>   
+    <th><center>Current</center></th>  
+    <th><center>Previous</center></th>  
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+
+<% @games.each do |game| %>
+  
+   <tr>
+   <% if  game.startdate > Date.today %>
+      <td><%= game.name %></td>
+	    <td><%= game.startdate.strftime("%b, %Y") %></td>
+	    <td><%= game.enddate.strftime("%b, %Y") %></td>
+			
+				<% else %>
+        <td><h5 class="muted"><%= game.name %></h5></td>
+  	    <td><h5 class="muted"><%= game.startdate.strftime("%b, %Y") %></h5></td>
+  	    <td><h5 class="muted"><%= game.enddate.strftime("%b, %Y") %></h5></td>
+		<% end %>
+		
+	<td><center><i><%= best_in_place game, :current, :type => :checkbox, :nil => "?" %></i></center></td>
+	<td><center><i><%= best_in_place game, :lastyear, :type => :checkbox, :nil => "?" %></i></center></td>
+
+      <td><b><%= link_to 'game', game_path(game.id) %></b></td>
+    	  <td><b><%= link_to 'edit', edit_game_path(game) %></b></td>
+    	  <td><b><%= link_to 'destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></b></td>
+
+  </tr>
+<% end %>
+
+</table>
+
+<br />
+
+
+  <div class="btn-group btn-group-vertical">
+    <button class="btn btn-large"><%= link_to "Add a game", new_game_path, class: "btn btn-primary" %></button>
+    <button class="btn">	<%= form_tag import_games_path, multipart: true do %>
+		                      <%= file_field_tag :file %>
+		                      <%= submit_tag "Import" %>
+	                        <% end %>
+	  </button>
+  </div>
+

@@ -1,0 +1,85 @@
+<%= form_for(@predict) do |f| %>
+  <% if @predict.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@predict.errors.count, "error") %> prohibited this predict from being saved:</h2>
+
+      <ul>
+      <% @predict.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fixture_id %><br />
+    <%= f.number_field :fixture_id %>
+  </div>
+  <div class="field">
+    <%= f.label :game_id %><br />
+    <%= f.number_field :game_id %>
+  </div>
+  <div class="field">
+    <%= f.label :awayscore %><br />
+    <%= f.number_field :awayscore %>
+  </div>
+  <div class="field">
+    <%= f.label :homescore %><br />
+    <%= f.number_field :homescore %>
+  </div>
+  <div class="field">
+    <%= f.label :points %><br />
+    <%= f.number_field :points %>
+  </div>
+  <div class="field">
+    <%= f.label :correct_result %><br />
+    <%= f.number_field :correct_result %>
+  </div>
+  <div class="field">
+    <%= f.label :right_result %><br />
+    <%= f.number_field :right_result %>
+  </div>
+  <div class="field">
+    <%= f.label :val_right_result %><br />
+    <%= f.number_field :val_right_result %>
+  </div>
+  <div class="field">
+    <%= f.label :closest_to_home %><br />
+    <%= f.number_field :closest_to_home %>
+  </div>
+  <div class="field">
+    <%= f.label :closest_to_away %><br />
+    <%= f.number_field :closest_to_away %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_home_score %><br />
+    <%= f.number_field :exact_home_score %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_away_score %><br />
+    <%= f.number_field :exact_away_score %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_result %><br />
+    <%= f.number_field :exact_result %>
+  </div>
+  <div class="field">
+    <%= f.label :val_exact_result %><br />
+    <%= f.number_field :val_exact_result %>
+  </div>
+  <div class="field">
+    <%= f.label :val_closest_to_home %><br />
+    <%= f.number_field :val_closest_to_home %>
+  </div>
+  <div class="field">
+    <%= f.label :val_closest_to_away %><br />
+    <%= f.number_field :val_closest_to_away %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

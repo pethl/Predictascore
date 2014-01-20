@@ -1,0 +1,18 @@
+	<table class="table2">
+ 
+ <tr>
+ <strong><br><%= @last_game[0].name[10, 4] %> Scores</strong><br>
+ </tr>
+     <tr>
+        <td> 
+         
+          <% for previous_fixture in @previous_fixtures do %>
+          <%= previous_fixture.hometeam[0, 3] %> v <%= previous_fixture.awayteam[0, 3] %>...<%= previous_fixture.matchhomescore %>-<%= previous_fixture.matchawayscore %><br>
+          <% end %>
+  
+          </td>
+
+
+    </tr>
+   </table>
+   

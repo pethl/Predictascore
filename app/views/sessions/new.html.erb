@@ -1,0 +1,20 @@
+<br>
+
+<table>
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <tr>
+    <td><%= f.label :user %></td>
+    <td><a><%= collection_select(:user, :name, @users, :name, :name) %></a></td>
+    </tr>
+    <tr>
+    <td><%= f.label :password %>
+    <td><%= f.password_field :password %><br>
+     </tr>
+</table>
+
+
+
+<%= f.submit 'Sign In', :class => 'mybutton' %>
+
+<br><br>  New user? <%= link_to "Sign up now!", new_user_path %>
+   <% end %>

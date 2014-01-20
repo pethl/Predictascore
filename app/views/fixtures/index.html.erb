@@ -1,0 +1,47 @@
+
+<br>
+<% @fixtures_by_week.each do |week, fixture_by_week| %>
+      
+       <table class="table">        
+  <tr>
+    <b>Week <%= week %></b>
+    </tr>
+           	  	 
+        <% fixture_by_week = fixture_by_week.sort_by{|e| e[:matchdate]}%>
+            <% fixture_by_week.each do |fixture| %>
+      
+      <tr>
+      
+       
+        <td><i><%= fixture.matchdate.strftime("%d %b") %></i></td>
+        <td><i><%= fixture.ko.strftime("%H:%M") %></i></td>
+       <td></td>
+        <td><b><%= fixture.hometeam %></b></td>
+                <td> v. </td>
+        <td><b><%= fixture.awayteam %></b></td>
+        <td><%= fixture.matchhomescore %></td> 
+        <td><%= fixture.matchawayscore %></td>
+	      <td><center><%=link_to(image_tag("/images/binocs.png",:size => "20x20", :alt=> "predictions"),
+            {:controller=>"predicts", :action=>"index"}, :title=>"Predictions", :class=>"logo") %></td>
+        
+      </tr>
+
+  <% end %> <% end %>
+  </table>
+
+
+<br />
+<% if signed_in? && current_user.admin? %>
+<div class="btn-group btn-group-vertical">
+  <button class="btn btn-large"><%= link_to "Add a game", new_game_path, class: "btn btn-primary" %></button>
+  <button class="btn">	<%= form_tag import_fixtures_path, multipart: true do %>
+                        <%= collection_select(:game, :game_id, Game.all, :id, :name ) %>
+                     
+	                      <%= file_field_tag :file %>
+	                      <%= submit_tag "Import" %>
+                        <% end %>
+  </button>
+</div>
+<% end %>
+
+<%= link_to 'New Fixture', new_fixture_path %>
